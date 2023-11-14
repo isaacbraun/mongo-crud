@@ -160,6 +160,11 @@ nav[aria-label="Skip Links"] ul {
     --clr-text: var(--clr-black);
 }
 
+.bg-white {
+    background-color: var(--clr-background);
+    --clr-text: var(--clr-black);
+}
+
 .bg-dark {
     background-color: var(--clr-black);
     --clr-text: var(--clr-background);
@@ -295,6 +300,10 @@ html.no-js .component>*,
     text-align: center;
     display: grid;
     place-items: center;
+}
+
+.text-center {
+    text-align: center;
 }
 
 /* END Component Generic Styles */
