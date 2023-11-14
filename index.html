@@ -63,7 +63,7 @@
                             <ul>
                                 <li>Insert methods will create a collection if the specified collection does not already
                                     exist.</li>
-                                <li>Each document requires a unique <code>_id</code> field (primary key).</li>
+                                <li>Each document requires a unique <code>_id</code> field (used as primary key).</li>
                                 <li>If an <code>_id</code> is not provided for the document, the Node.js driver adds an
                                     auto-generated <code>_id</code> to the new document.</li>
                             </ul>
@@ -171,7 +171,7 @@ where age &gt; 18;</code>
             <section class="component code-info">
                 <div class="component-content" data-size="medium">
                     <div class="component-header">
-                        <h2>Update & Delete Documents</h2>
+                        <h2>Update + Delete Documents</h2>
                     </div>
                     <div class="grid-split-even">
                         <div class="info-section flow">
@@ -238,7 +238,8 @@ db.users.deleteMany(
                                     <pre>
                                 <code>
 delete from users
-where status = "reject";</code>
+where status = "reject";
+</code>
                             </pre>
                                 </div>
                             </div>
