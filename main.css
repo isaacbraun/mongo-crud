@@ -190,7 +190,7 @@ nav[aria-label="Skip Links"] ul {
     block-size: auto;
     box-shadow: 0 0 20px #0000001a;
     clip: auto;
-    color: var(--clr-text); 
+    color: var(--clr-text);
     font-size: 1rem;
     inline-size: auto;
     inset-block-start: 0;
@@ -300,6 +300,7 @@ html.no-js .component>*,
     text-align: center;
     display: grid;
     place-items: center;
+    transition: transform .3s ease-in-out;
 }
 
 .text-center {
@@ -362,5 +363,12 @@ footer {
 
     header h1 {
         font-size: 6.5rem;
+    }
+}
+
+@media (hover: hover) {
+    .grid-md-cards li:is(:hover, :focus) {
+        transform: scale(1.05);
+        transition: transform .3s ease-in-out;
     }
 }
