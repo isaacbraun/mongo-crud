@@ -35,37 +35,39 @@
             </div>
         </header>
         <main>
-            <!-- General Points --> 
+            <!-- General Findings -->
             <section class="component bg-primary">
                 <div class="component-content" data-size="small">
                     <div class="component-header">
-                        <h2>General Points</h2>
+                        <h2>General Findings</h2>
                     </div>
                     <ul class="grid-md-cards">
                         <li class="bg-secondary">A collection is analogous with a table in SQL</li>
-                        <li class="bg-dark">A document is analogous with a row in SQL</li>
-                        <li class="bg-accent">A field is analogous with a column in SQL</li>
-                        <li class="bg-primary">CRUD operations all target a single collection</li>
-                        <li class="bg-secondary">CRUD operations, except read, are atomic</li>
+                        <li class="bg-secondary">A document is analogous with a row in SQL</li>
+                        <li class="bg-secondary">A field is analogous with a column in SQL</li>
+                        <li class="bg-secondary">CRUD operations all target a single collection</li>
+                        <li class="bg-white">CRUD operations, except read, are atomic</li>
                         <li class="bg-secondary">Many different drivers are available</li>
                     </ul>
                 </div>
             </section>
-            <!-- Create / Insert Items -->
+            <!-- Create / Insert Documents -->
             <section class="component code-info">
                 <div class="component-content" data-size="medium">
                     <div class="component-header">
-                        <h2>Create / Insert Items</h2>
+                        <h2>Create / Insert Documents</h2>
                     </div>
                     <div class="grid-split-even">
                         <div class="info-section flow">
                             <h3>Key Points</h3>
                             <ul>
-                                <li>Insert methods will create a collection if the specified collection does not already exist.</li>
+                                <li>Insert methods will create a collection if the specified collection does not already
+                                    exist.</li>
                                 <li>Each document requires a unique <code>_id</code> field (primary key).</li>
-                                <li>If an <code>_id</code> is not provided for the document, the Node.js driver adds an auto-generated <code>_id</code> to the new document.</li>
+                                <li>If an <code>_id</code> is not provided for the document, the Node.js driver adds an
+                                    auto-generated <code>_id</code> to the new document.</li>
                             </ul>
-                            
+
                             <h3>Insert Methods</h3>
                             <ul>
                                 <li>insertOne()</li>
@@ -127,6 +129,121 @@ values("Isaac Braun", 23, "pending");</code>
                         </div>
                     </div>
                 </div>
+            </section>
+            <!-- Read Documents -->
+            <section class="component bg-secondary code-info">
+                <div class="component-content" data-size="medium">
+                    <div class="component-header">
+                        <h2>Read Documents</h2>
+                    </div>
+                    <div class="grid-split-even">
+                        <div class="code-section">
+                            <div class="code-block bg-dark">
+                                <h3 class="code-block--language">
+                                    MongoDB - Node.js
+                                </h3>
+                                <pre>
+                                <code>
+db.users.find(
+    { age: { $gt: 18 } },
+    { name: 1, address: 1 }
+).limit(5);</code>
+                            </pre>
+                            </div>
+                        </div>
+                        <div class="code-section">
+                            <div class="code-block bg-dark">
+                                <h3 class="code-block--language">
+                                    SQL
+                                </h3>
+                                <pre>
+                                <code>
+select top 5 name, address
+from users
+where age &gt; 18;</code>
+                            </pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Update & Delete Documents -->
+            <section class="component code-info">
+                <div class="component-content" data-size="medium">
+                    <div class="component-header">
+                        <h2>Update & Delete Documents</h2>
+                    </div>
+                    <div class="grid-split-even">
+                        <div class="info-section flow">
+                            <h3>Update Methods</h3>
+                            <ul>
+                                <li>updateOne()</li>
+                                <li>updateMany()</li>
+                                <li>replaceOne()</li>
+                            </ul>
+                            <div class="code-section">
+                                <div class="code-block bg-dark">
+                                    <h3 class="code-block--language">
+                                        MongoDB - Node.js
+                                    </h3>
+                                    <pre>
+                                <code>
+db.users.updateMany(
+    { age: { $lt: 18 } },
+    { $set: { status: "reject" } }
+)</code>
+                            </pre>
+                                </div>
+                            </div>
+                            <div class="code-section">
+                                <div class="code-block bg-dark">
+                                    <h3 class="code-block--language">
+                                        SQL
+                                    </h3>
+                                    <pre>
+                                <code>
+update users
+set status = "reject"
+where age &lt; 18;</code>
+                            </pre>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="info-section flow">
+                            <h3>Delete Methods</h3>
+                            <ul>
+                                <li>deleteOne()</li>
+                                <li>deleteMany()</li>
+                                <li style="opacity: 0;"></li>
+                            </ul>
+                            <div class="code-section">
+                                <div class="code-block bg-dark">
+                                    <h3 class="code-block--language">
+                                        MongoDB - Node.js
+                                    </h3>
+                                    <pre>
+                                <code>
+db.users.deleteMany(
+    { status: { "reject" } }
+)
+</code>
+                            </pre>
+                                </div>
+                            </div>
+                            <div class="code-section">
+                                <div class="code-block bg-dark">
+                                    <h3 class="code-block--language">
+                                        SQL
+                                    </h3>
+                                    <pre>
+                                <code>
+delete from users
+where status = "reject";</code>
+                            </pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
             </section>
         </main>
     </div>
