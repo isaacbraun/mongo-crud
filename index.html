@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MogoDB Crud Operations</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="main.css">
+
+    <!-- JS Defered -->
+    <script defer src="core.js"></script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Oswald:wght@300;400;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <nav aria-label="Skip Links">
+        <ul>
+            <li><a href="#main-layout" class="visually-hidden--focusable" title="Skip to Main Content">Skip to Main
+                    Content</a></li>
+        </ul>
+    </nav>
+    <div id="main-layout">
+        <header class="bg-secondary component">
+            <div class="titles">
+                <h1>MongoDB</h1>
+                <h2>Crud Operations</h2>
+            </div>
+        </header>
+        <main>
+            <section class="component code-info">
+                <div class="component-content" data-size="medium">
+                    <div class="component-header">
+                        <h2>Create / Insert Items</h2>
+                    </div>
+                    <div class="grid-split-even">
+                        <div class="info-section flow">
+                            <h3>Key Points</h3>
+                            <ul>
+                                <li>Insert methods will create a collection if the specified collection does not already exist.</li>
+                                <li>Each document requires a unique <code>_id</code> field (primary key).</li>
+                                <li>If an <code>_id</code> is not provided for the document, the Node.js driver adds an auto-generated <code>_id</code> to the new document.</li>
+                            </ul>
+                            
+                            <h3>Insert Methods</h3>
+                            <ul>
+                                <li>insertOne()</li>
+                                <li>insertMany()</li>
+                            </ul>
+                            <h3>Psuedo-Insert Methods</h3>
+                            <p>When <code>upsert</code> property is set to <code>true</code>.</p>
+                            <ul>
+                                <li>updateOne()</li>
+                                <li>updateMany()</li>
+                                <li>findAndModify()</li>
+                                <li>findOneAndUpdate()</li>
+                                <li>findOneAndReplace()</li>
+                            </ul>
+                        </div>
+                        <div class="code-section">
+                            <div class="code-block bg-dark">
+                                <h3 class="code-block--language">
+                                    MongoDB - Node.js
+                                </h3>
+                                <pre>
+                                <code>
+db.users.insertOne(
+    {
+        name: "Isaac Braun",
+        age: 23,
+        status: "pending"
+    }
+);
+
+db.user.insertMany(
+    [
+        {
+            name: "John Doe",
+            age: 37,
+            groups: ['news', 'sports']
+            status: "active"
+        },
+        {
+            name: "Jane Doe",
+            age: 35,
+            status: "pending"
+        }
+    ]
+);
+</code>
+                            </pre>
+                            </div>
+                            <div class="code-block bg-dark">
+                                <h3 class="code-block--language">
+                                    SQL
+                                </h3>
+                                <pre>
+                                <code>
+insert into users (name, age, status)
+values("Isaac Braun", 23, "pending");</code>
+                            </pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="bg-primary">
+            <p>&copy; 2023 <a href="https://www.braunbauen.com/">braun bauen</a></p>
+        </footer>
+    </div>
+</body>
+
+</html>
